@@ -480,11 +480,13 @@ var VideoImage = function(src, rawVideo) {
 									this.video.autobuffer=true;
 									this.video.loop		= true;
 									this.video.play();
-									});
+									},
+									true);
 		this.video.addEventListener('error', function(e) {
 									self.video.onerror = "";
 									self.video.poster = "http://www.wescheme.org/images/broken.png";
-									});
+									},
+									true);
     }
 }
 VideoImage.prototype = heir(BaseImage.prototype);
@@ -499,6 +501,7 @@ VideoImage.makeInstance = function(path, rawVideo) {
 };
 
 VideoImage.prototype.render = function(ctx, x, y) {
+	alert('rendering');
     ctx.drawImage(this.video, x, y);
 };
 

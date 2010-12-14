@@ -1053,13 +1053,15 @@ new PrimProc('video-url',
 										rawVideo.src = path.toString();
 										rawVideo.addEventListener('canplay', function() {
 										success(world.Kernel.videoImage(path.toString(), rawVideo));
-										});
+									    },
+									    true);
 										rawVideo.addEventListener('error', function(e) {
 										fail(types.schemeError(types.incompleteExn(
 																				   types.exnFail,
 																				   " (unable to load: " + path + ")",
 																				   [])));
-										});
+									    },
+									    true);
 										rawVideo.src = path.toString();
 										});
 			 });
