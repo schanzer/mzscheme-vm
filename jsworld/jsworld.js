@@ -227,14 +227,8 @@ EXPORTS['on-key'] = new PrimProc('on-key', 1, false, false, onEvent('on-key', 'o
 EXPORTS['on-key!'] = new PrimProc('on-key!', 2, false, false, onEventBang('on-key!', 'onKey'));
 
 
-EXPORTS['stop-when'] = new CasePrimitive(
-							'stop-when',
-							// just stop when fn returns true			 
-							[new PrimProc('stop-when', 1, false, false,
-										  onEvent('stop-when', 'stopWhen', 1)),
-							 new PrimProc('stop-when', 2, false, false,
-										  onEvent('stop-when', 'stopWhen', 1))]
-						);
+EXPORTS['stop-when'] = new PrimProc('stop-when', 1, false, false,
+				       onEvent('stop-when', 'stopWhen', 1));
 EXPORTS['stop-when!'] = new PrimProc('stop-when!', 2, false, false,
 					onEventBang('stop-when!', 'stopWhen'));
 

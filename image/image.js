@@ -214,13 +214,7 @@ var checkAllSameLength = function(lists, functionName, args) {
 
 
 
-EXPORTS['play-sound'] =
-	new PrimProc('play-sound', 2, false, false,
-				 function(path, async){
-					 check(path, isString, 'play-sound', 'path', 1);
-					 check(async, isBoolean, 'play-sound', 'async', 2);
-					 return world.Kernel.playSound(path, async);
-				 });
+
 
 
 

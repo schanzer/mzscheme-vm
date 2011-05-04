@@ -61,8 +61,7 @@
 	 "jsworld.rkt"
 	 "location.rkt"
 	 "images.rkt"
-	 "more-jsworld.ss"
-	 "video.rkt")
+	 "more-jsworld.ss")
 
 
 (printf "all-tests completed\n")

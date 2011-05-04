@@ -5,7 +5,6 @@
 (require-js "image.js")
 
 (provide 
-	play-sound
 	 make-color
 	 color-red
 	 color-green
