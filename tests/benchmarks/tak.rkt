@@ -15,3 +15,5 @@
 
 (define (tak-benchmark)
   (run-benchmark "Tak" (lambda () (tak 18 12 6)) 10))
+
+(tak-benchmark)

@@ -18,8 +18,9 @@
 (printf "Checking for untouched wescheme primitives\n")
 (unless (empty? (untouched-wescheme-primitives))
   (print-coverage-report)
-  (printf "Press Enter to continue.\n")
-  (void (read-line)))
+;  (printf "Press Enter to continue.\n")
+;  (void (read-line))
+  )
 
-(printf "Running browser tests\n")
-(run-in-browser "all-tests.rkt")
+;(printf "Running browser tests\n")
+(run-in-browser "moby-programs/images.rkt")

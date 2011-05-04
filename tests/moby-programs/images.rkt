@@ -10,8 +10,8 @@
 
 
 (check-expect (image=? (circle 50 "solid" "blue")
-		       (rectangle 20 30 "outline" "turquoise"))
-	      #f)
+                       (rectangle 20 30 "outline" "turquoise"))
+              #f)
 "should be an outline turquoise rectangle: " (rectangle 20 30 "outline" "turquoise")
 
 
@@ -25,19 +25,19 @@
 (check-expect (image=? (empty-scene 20 50) (empty-scene 20 50)) true)
 
 (check-expect (image? (place-image (circle 50 'solid 'blue)
-				   50
-				   50
-				   (empty-scene 100 100)))
-	      true)
+                                   50
+                                   50
+                                   (empty-scene 100 100)))
+              true)
 
 "should be a blue circle in a scene with a border: " (place-image (circle 50 'solid 'blue)
-				   50
-				   50
-				   (empty-scene 100 100))
+                                                                  50
+                                                                  50
+                                                                  (empty-scene 100 100))
 
 (check-expect (image?
-	       (put-pinhole (rectangle 20 20 'solid 'green) 0 0))
-	      true)
+               (put-pinhole (rectangle 20 20 'solid 'green) 0 0))
+              true)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -51,234 +51,222 @@
 
 "test font-weight"
 (text/font "Hello" 24 "purple"
-               "Gill Sans" 'swiss 'normal 'bold #f)
+           "Gill Sans" 'swiss 'normal 'bold #f)
 (text/font "Hello" 24 "green"
-               "Gill Sans" 'swiss 'normal 'light #f)
-  
+           "Gill Sans" 'swiss 'normal 'light #f)
+
 "test font-style"
 (text/font "Goodbye" 48 "indigo"
-               "Helvetica" 'modern 'italic 'normal #f)
+           "Helvetica" 'modern 'italic 'normal #f)
 (text/font "Goodbye" 48 "indigo"
-               "Helvetica" 'modern 'normal 'normal #f)
+           "Helvetica" 'modern 'normal 'normal #f)
 
 "test underline-height calculation"
 (text/font "test this!" 80 "purple"
-              "Helvetica" 'roman 'normal 'normal #t)
-			  
+           "Helvetica" 'roman 'normal 'normal #t)
+
 (text/font "low-hanging glyphs" 36 "blue"
-              "Times" 'roman 'normal 'bold #t)  
+           "Times" 'roman 'normal 'bold #t)  
 
 (text/font "teeny-tiny text" 8 "black"
-              "Times" 'roman 'normal 'bold #t)  
+           "Times" 'roman 'normal 'bold #t)  
 
 (text/font "not really a link" 36 "blue"
-              "Courier" 'roman 'italic 'normal #t)
-			  
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; IMAGE-URL & VIDEO-URL
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-"importing images and video"
-(image-url "http://racket-lang.org/logo.png")
-(open-image-url "http://racket-lang.org/logo.png")
+           "Courier" 'roman 'italic 'normal #t)
 
-;(video-url "http://www.youtube.com/demo/google_main.mp4")
-;(overlay (circle 20 "solid" "red")
-;	(video-url "http://www.youtube.com/demo/google_main.mp4"))
-;(rotate 45
-;	(video-url "http://www.youtube.com/demo/google_main.mp4"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; OVERLAY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "the next two images should be identical"
 (overlay (circle 20 "solid" (make-color  50  50 255))
-             (square 40 "solid" (make-color 100 100 255)))
+         (square 40 "solid" (make-color 100 100 255)))
 
 (overlay (circle 20 "solid" (make-color  50  50 255))
-             (regular-polygon 40 4 "solid" (make-color 100 100 255)))
+         (regular-polygon 40 4 "solid" (make-color 100 100 255)))
 
 (overlay (ellipse 10 10 "solid" "red")
-             (ellipse 20 20 "solid" "black")
-             (ellipse 30 30 "solid" "red")
-             (ellipse 40 40 "solid" "black")
-             (ellipse 50 50 "solid" "red")
-             (ellipse 60 60 "solid" "black"))
+         (ellipse 20 20 "solid" "black")
+         (ellipse 30 30 "solid" "red")
+         (ellipse 40 40 "solid" "black")
+         (ellipse 50 50 "solid" "red")
+         (ellipse 60 60 "solid" "black"))
 
 "the next two images should be identical"
 (overlay (square 20 "solid" (make-color  50  50 255))
-             (square 26 "solid" (make-color 100 100 255))
-             (square 32 "solid" (make-color 150 150 255))
-             (square 38 "solid" (make-color 200 200 255))
-             (square 44 "solid" (make-color 250 250 255)))
+         (square 26 "solid" (make-color 100 100 255))
+         (square 32 "solid" (make-color 150 150 255))
+         (square 38 "solid" (make-color 200 200 255))
+         (square 44 "solid" (make-color 250 250 255)))
 (overlay (regular-polygon 20 4 "solid" (make-color  50  50 255))
-             (regular-polygon 26 4 "solid" (make-color 100 100 255))
-             (regular-polygon 32 4 "solid" (make-color 150 150 255))
-             (regular-polygon 38 4 "solid" (make-color 200 200 255))
-             (regular-polygon 44 4 "solid" (make-color 250 250 255)))
-			 
-			 
+         (regular-polygon 26 4 "solid" (make-color 100 100 255))
+         (regular-polygon 32 4 "solid" (make-color 150 150 255))
+         (regular-polygon 38 4 "solid" (make-color 200 200 255))
+         (regular-polygon 44 4 "solid" (make-color 250 250 255)))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; OVERLAY/XY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "should be some overlay/xys"
 (overlay/xy (rectangle 20 20 "outline" "black")
-                20 0
-                (rectangle 20 20 "outline" "black"))
+            20 0
+            (rectangle 20 20 "outline" "black"))
 (overlay/xy (rectangle 20 20 "solid" "red")
-                20 20
-                (rectangle 20 20 "solid" "black"))
+            20 20
+            (rectangle 20 20 "solid" "black"))
 (overlay/xy (rectangle 20 20 "solid" "red")
-                -20 -20
-                (rectangle 20 20 "solid" "black"))
+            -20 -20
+            (rectangle 20 20 "solid" "black"))
 (overlay/xy
-     (overlay/xy (ellipse 40 40 "outline" "black")
-                 10
-                 15
-                 (ellipse 10 10 "solid" "forestgreen"))
-     20
-     15
-     (ellipse 10 10 "solid" "forestgreen"))
-		
+ (overlay/xy (ellipse 40 40 "outline" "black")
+             10
+             15
+             (ellipse 10 10 "solid" "forestgreen"))
+ 20
+ 15
+ (ellipse 10 10 "solid" "forestgreen"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; OVERLAY/ALIGN
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "some examples of overlay/align"
 (overlay/align "middle" "middle"
-                   (ellipse 60 30 "solid" "purple")
-                   (rectangle 30 60 "solid" "orange"))
+               (ellipse 60 30 "solid" "purple")
+               (rectangle 30 60 "solid" "orange"))
 (overlay/align "right" "top"
-                   (ellipse 60 30 "solid" "purple")
-                   (rectangle 30 60 "solid" "orange"))
+               (ellipse 60 30 "solid" "purple")
+               (rectangle 30 60 "solid" "orange"))
 (overlay/align "left" "bottom"
-                   (ellipse 60 30 "solid" "purple")
-                   (rectangle 30 60 "solid" "orange"))
-				   
+               (ellipse 60 30 "solid" "purple")
+               (rectangle 30 60 "solid" "orange"))
+
 (overlay/align "right" "bottom"
-                   (rectangle 20 20 "solid" "silver")
-                   (rectangle 30 30 "solid" "seagreen")
-                   (rectangle 40 40 "solid" "silver")
-                   (rectangle 50 50 "solid" "seagreen"))
-				   
+               (rectangle 20 20 "solid" "silver")
+               (rectangle 30 30 "solid" "seagreen")
+               (rectangle 40 40 "solid" "silver")
+               (rectangle 50 50 "solid" "seagreen"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UNDERLAY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "some underlays"
 (underlay (circle 20 'solid 'green)
-	  (rectangle 10 20 'solid 'blue))
-	  
+          (rectangle 10 20 'solid 'blue))
+
 (underlay (ellipse 10 60 "solid" "red")
-              (ellipse 20 50 "solid" "black")
-              (ellipse 30 40 "solid" "red")
-              (ellipse 40 30 "solid" "black")
-              (ellipse 50 20 "solid" "red")
-              (ellipse 60 10 "solid" "black"))
+          (ellipse 20 50 "solid" "black")
+          (ellipse 30 40 "solid" "red")
+          (ellipse 40 30 "solid" "black")
+          (ellipse 50 20 "solid" "red")
+          (ellipse 60 10 "solid" "black"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; UNDERLAY/XY & UNDERLAY/ALIGN
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "examples of underlay and underlay/align"
 (underlay/xy (circle 20 'solid 'green)
-	     30 10
-	     (rectangle 10 20 'solid 'blue))
+             30 10
+             (rectangle 10 20 'solid 'blue))
 
 (underlay/align "middle" "middle"
-                   (ellipse 60 30 "solid" "purple")
-                   (rectangle 30 60 "solid" "orange"))
+                (ellipse 60 30 "solid" "purple")
+                (rectangle 30 60 "solid" "orange"))
 (underlay/align "right" "top"
-                   (ellipse 60 30 "solid" "purple")
-                   (rectangle 30 60 "solid" "orange"))
+                (ellipse 60 30 "solid" "purple")
+                (rectangle 30 60 "solid" "orange"))
 (underlay/align "left" "bottom"
-                   (ellipse 60 30 "solid" "purple")
-                   (rectangle 30 60 "solid" "orange"))
-				   
+                (ellipse 60 30 "solid" "purple")
+                (rectangle 30 60 "solid" "orange"))
+
 (underlay/align "right" "bottom"
-                   (rectangle 50 50 "solid" "silver")
-                   (rectangle 40 40 "solid" "seagreen")
-                   (rectangle 30 30 "solid" "silver")
-                   (rectangle 20 20 "solid" "seagreen"))
-		 
+                (rectangle 50 50 "solid" "silver")
+                (rectangle 40 40 "solid" "seagreen")
+                (rectangle 30 30 "solid" "silver")
+                (rectangle 20 20 "solid" "seagreen"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; BESIDE & BESIDE/ALIGN
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "examples of beside and beside/align"
 (beside (ellipse 20 70 "solid" "gray")
-            (ellipse 20 50 "solid" "darkgray")
-            (ellipse 20 30 "solid" "dimgray")
-            (ellipse 20 10 "solid" "black"))
-			
+        (ellipse 20 50 "solid" "darkgray")
+        (ellipse 20 30 "solid" "dimgray")
+        (ellipse 20 10 "solid" "black"))
+
 (beside/align "bottom"
-                  (ellipse 20 70 "solid" "lightsteelblue")
-                  (ellipse 20 50 "solid" "mediumslateblue")
-                  (ellipse 20 30 "solid" "slateblue")
-                  (ellipse 20 10 "solid" "navy"))
-				  
+              (ellipse 20 70 "solid" "lightsteelblue")
+              (ellipse 20 50 "solid" "mediumslateblue")
+              (ellipse 20 30 "solid" "slateblue")
+              (ellipse 20 10 "solid" "navy"))
+
 (beside/align "top"
-                  (ellipse 20 70 "solid" "mediumorchid")
-                  (ellipse 20 50 "solid" "darkorchid")
-                  (ellipse 20 30 "solid" "purple")
-                  (ellipse 20 10 "solid" "indigo"))
+              (ellipse 20 70 "solid" "mediumorchid")
+              (ellipse 20 50 "solid" "darkorchid")
+              (ellipse 20 30 "solid" "purple")
+              (ellipse 20 10 "solid" "indigo"))
 
 "align these text images on their baselines"
 (beside/align "baseline"
-                  (text "ijy" 18 "black")
-                  (text "ijy" 24 "black"))				  		 
+              (text "ijy" 18 "black")
+              (text "ijy" 24 "black"))				  		 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ABOVE & ABOVE/ALIGN
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "should be some examples of above and above/align"
 (above (ellipse 70 20 "solid" "gray")
-           (ellipse 50 20 "solid" "darkgray")
-           (ellipse 30 20 "solid" "dimgray")
-           (ellipse 10 20 "solid" "black"))
-										
+       (ellipse 50 20 "solid" "darkgray")
+       (ellipse 30 20 "solid" "dimgray")
+       (ellipse 10 20 "solid" "black"))
+
 (above/align "right"
-                 (ellipse 70 20 "solid" "gold")
-                 (ellipse 50 20 "solid" "goldenrod")
-                 (ellipse 30 20 "solid" "darkgoldenrod")
-                 (ellipse 10 20 "solid" "sienna"))
+             (ellipse 70 20 "solid" "gold")
+             (ellipse 50 20 "solid" "goldenrod")
+             (ellipse 30 20 "solid" "darkgoldenrod")
+             (ellipse 10 20 "solid" "sienna"))
 (above/align "left"
-                 (ellipse 70 20 "solid" "yellowgreen")
-                 (ellipse 50 20 "solid" "olivedrab")
-                 (ellipse 30 20 "solid" "darkolivegreen")
-                 (ellipse 10 20 "solid" "darkgreen"))
-				
-								 
-												 
+             (ellipse 70 20 "solid" "yellowgreen")
+             (ellipse 50 20 "solid" "olivedrab")
+             (ellipse 30 20 "solid" "darkolivegreen")
+             (ellipse 10 20 "solid" "darkgreen"))
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PLACE-IMAGE/ALIGN
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "should be right in the center"
 (place-image/align (circle 16 "solid" "yellow")
-                       32 32 "center" "center"
-                       (rectangle 64 64 "solid" "goldenrod"))
+                   32 32 "center" "center"
+                   (rectangle 64 64 "solid" "goldenrod"))
 
 "should be at the bottom-right corner"
 (place-image/align (circle 16 "solid" "yellow")
-                       32 32 "left" "top"
-                       (rectangle 64 64 "solid" "goldenrod"))
+                   32 32 "left" "top"
+                   (rectangle 64 64 "solid" "goldenrod"))
 
 "should be at the upper-left corner"
 (place-image/align (circle 16 "solid" "yellow")
-                       32 32 "right" "bottom"
-                       (rectangle 64 64 "solid" "goldenrod"))  
-			   
+                   32 32 "right" "bottom"
+                   (rectangle 64 64 "solid" "goldenrod"))  
+
 "test 'beside' with scenes -- from the DrRacket documentation"
 (beside (place-image/align (circle 8 "solid" "tomato")
-				0 0 "center" "center"
-				(rectangle 32 32 "outline" "black"))
-		(place-image/align (circle 8 "solid" "tomato")
-						8 8 "center" "center"
-						(rectangle 32 32 "outline" "black"))
-		(place-image/align (circle 8 "solid" "tomato")
-						16 16 "center" "center"
-						(rectangle 32 32 "outline" "black"))
-		(place-image/align (circle 8 "solid" "tomato")
-						24 24 "center" "center"
-						(rectangle 32 32 "outline" "black"))
-		(place-image/align (circle 8 "solid" "tomato")
-						32 32 "center" "center"
-						(rectangle 32 32 "outline" "black"))) 	
-									 
+                           0 0 "center" "center"
+                           (rectangle 32 32 "outline" "black"))
+        (place-image/align (circle 8 "solid" "tomato")
+                           8 8 "center" "center"
+                           (rectangle 32 32 "outline" "black"))
+        (place-image/align (circle 8 "solid" "tomato")
+                           16 16 "center" "center"
+                           (rectangle 32 32 "outline" "black"))
+        (place-image/align (circle 8 "solid" "tomato")
+                           24 24 "center" "center"
+                           (rectangle 32 32 "outline" "black"))
+        (place-image/align (circle 8 "solid" "tomato")
+                           32 32 "center" "center"
+                           (rectangle 32 32 "outline" "black"))) 	
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TRIANGLE, RIGHT TRIANGLE & ISOSCELES-TRIANGLE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -360,50 +348,57 @@
 (regular-polygon 20 9 "solid" "sienna")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; IMAGE-URL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+"importing images: WILL FAIL IF NO NETWORK CONNECTION IS PRESENT"
+(bitmap/url "http://racket-lang.org/logo.png")
+(bitmap/url "http://racket-lang.org/logo.png")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ROTATE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "Three images at 30, 60, 90 degree rotation:"
-(rotate 30 (image-url "http://racket-lang.org/logo.png"))
-(rotate 60 (image-url "http://racket-lang.org/logo.png"))
-(rotate 90 (image-url "http://racket-lang.org/logo.png"))
+(rotate 30 (bitmap/url "http://racket-lang.org/logo.png"))
+(rotate 60 (bitmap/url "http://racket-lang.org/logo.png"))
+(rotate 90 (bitmap/url "http://racket-lang.org/logo.png"))
 
 "Rotated, huge image"
-(rotate 30 (scale 3 (image-url "http://racket-lang.org/logo.png")))
+(rotate 30 (scale 3 (bitmap/url "http://racket-lang.org/logo.png")))
 
 "From the Racket documentation:"
 (rotate 45 (ellipse 60 20 "solid" "olivedrab"))
 (rotate 5 (rectangle 50 50 "outline" "black"))
 (rotate 45
-            (beside/align
-             "center"
-             (rectangle 40 20 "solid" "darkseagreen")
-             (rectangle 20 100 "solid" "darkseagreen")))
-			    
+        (beside/align
+         "center"
+         (rectangle 40 20 "solid" "darkseagreen")
+         (rectangle 20 100 "solid" "darkseagreen")))
+
 (beside
-     (rotate 30 (square 50 "solid" "red"))
-     (flip-horizontal
-      (rotate 30 (square 50 "solid" "blue"))))
-			 
+ (rotate 30 (square 50 "solid" "red"))
+ (flip-horizontal
+  (rotate 30 (square 50 "solid" "blue"))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; SCALE & SCALE/XY
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;			 
 "scaling small and large"
-(scale 1/2 (image-url "http://racket-lang.org/logo.png"))
-(scale 2 (image-url "http://racket-lang.org/logo.png"))
+(scale 1/2 (bitmap/url "http://racket-lang.org/logo.png"))
+(scale 2 (bitmap/url "http://racket-lang.org/logo.png"))
 
-(scale/xy 1 2 (image-url "http://racket-lang.org/logo.png"))
-(scale/xy 2 1 (image-url "http://racket-lang.org/logo.png"))
+(scale/xy 1 2 (bitmap/url "http://racket-lang.org/logo.png"))
+(scale/xy 2 1 (bitmap/url "http://racket-lang.org/logo.png"))
 
 "This should be the normal image"
-(scale/xy 1 1 (image-url "http://racket-lang.org/logo.png"))
+(scale/xy 1 1 (bitmap/url "http://racket-lang.org/logo.png"))
 
 "From the Racket documentation: two identical ellipses, and a circle"
 (scale 2 (ellipse 20 30 "solid" "blue"))
 (ellipse 40 60 "solid" "blue")
 (scale/xy	3
-			2
-			(ellipse 20 30 "solid" "blue"))
-			
+                2
+                (ellipse 20 30 "solid" "blue"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; FRAME AND CROP
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;			 
@@ -411,53 +406,53 @@
 (frame (ellipse 20 20 "outline" "black"))
 
 (beside
-     (ellipse 20 70 "solid" "lightsteelblue")
-     (frame (ellipse 20 50 "solid" "mediumslateblue"))
-     (ellipse 20 30 "solid" "slateblue")
-     (ellipse 20 10 "solid" "navy"))
-	 
+ (ellipse 20 70 "solid" "lightsteelblue")
+ (frame (ellipse 20 50 "solid" "mediumslateblue"))
+ (ellipse 20 30 "solid" "slateblue")
+ (ellipse 20 10 "solid" "navy"))
+
 (crop 0 0 40 40 (circle 40 "solid" "chocolate"))
 (crop 40 60 40 60 (ellipse 80 120 "solid" "dodgerblue"))
 (above
-     (beside (crop 40 40 40 40 (circle 40 "solid" "palevioletred"))
-             (crop 0 40 40 40 (circle 40 "solid" "lightcoral")))
-     (beside (crop 40 0 40 40 (circle 40 "solid" "lightcoral"))
-             (crop 0 0 40 40 (circle 40 "solid" "palevioletred"))))
+ (beside (crop 40 40 40 40 (circle 40 "solid" "palevioletred"))
+         (crop 0 40 40 40 (circle 40 "solid" "lightcoral")))
+ (beside (crop 40 0 40 40 (circle 40 "solid" "lightcoral"))
+         (crop 0 0 40 40 (circle 40 "solid" "palevioletred"))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LINE, ADD-LINE & SCENE+LINE
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 "Three tests for line"
 (line 30 30 "black")
-  
+
 (line -30 20 "red")
-  
+
 (line 30 -20 "red")
 
 "Three tests for add-line"
 (add-line (ellipse 40 40 "outline" "maroon")
-              0 40 40 0 "maroon")
-  
+          0 40 40 0 "maroon")
+
 (add-line (rectangle 40 40 "solid" "gray")
-              -10 50 50 -10 "maroon")
-  
+          -10 50 50 -10 "maroon")
+
 (add-line
-      (rectangle 100 100 "solid" "darkolivegreen")
-     25 25 100 100
-      "goldenrod")
-	  
+ (rectangle 100 100 "solid" "darkolivegreen")
+ 25 25 100 100
+ "goldenrod")
+
 "Three tests for lines+scene: should be identical to above, but cropped around base image"
 (scene+line (ellipse 40 40 "outline" "maroon")
-                0 40 40 0 "maroon")
-  
+            0 40 40 0 "maroon")
+
 (scene+line (rectangle 40 40 "solid" "gray")
-                -10 50 50 -10 "maroon")
-  
+            -10 50 50 -10 "maroon")
+
 (scene+line
-     (rectangle 100 100 "solid" "darkolivegreen")
-     25 25 100 100
-      "goldenrod")
-	  
+ (rectangle 100 100 "solid" "darkolivegreen")
+ 25 25 100 100
+ "goldenrod")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; FLIP-VERTICAL & FLIP-HORIZONTAL
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -467,48 +462,57 @@
 (flip-vertical (right-triangle 30 40 "solid" "green"))
 
 "one image flipped vertically, and one flipped horizontally"
-(flip-vertical (image-url "http://racket-lang.org/logo.png"))
-(flip-horizontal (image-url "http://racket-lang.org/logo.png"))
+(flip-vertical (bitmap/url "http://racket-lang.org/logo.png"))
+(flip-horizontal (bitmap/url "http://racket-lang.org/logo.png"))
+
+(above
+ (star 40 "solid" "firebrick")
+ (scale/xy 1 1/2 (flip-vertical (star 40 "solid" "gray"))))
+
+(beside
+ (rotate 30 (square 50 "solid" "red"))
+ (flip-horizontal
+  (rotate 30 (square 50 "solid" "blue"))))
 
 "BESIDE: reference image"
 (beside (square 20 "solid" (make-color  50  50 255))
-             (square 34 "solid" (make-color 150 150 255)))
+        (square 34 "solid" (make-color 150 150 255)))
 
 "flip the second one horizontally"			    
 (beside (square 20 "solid" (make-color  50  50 255))
-             (flip-horizontal (square 34 "solid" (make-color 150 150 255))))
+        (flip-horizontal (square 34 "solid" (make-color 150 150 255))))
 
 "flip the second one vertically"			    
 (beside (square 20 "solid" (make-color  50  50 255))
-             (flip-vertical (square 34 "solid" (make-color 150 150 255))))
-			    
+        (flip-vertical (square 34 "solid" (make-color 150 150 255))))
+
 "flip the first one horizontally"			    
 (beside (flip-horizontal (square 20 "solid" (make-color  50  50 255)))
-             (square 34 "solid" (make-color 150 150 255)))
+        (square 34 "solid" (make-color 150 150 255)))
 
 "flip the first one vertically"			    
 (beside (flip-vertical (square 20 "solid" (make-color  50  50 255)))
-             (square 34 "solid" (make-color 150 150 255)))
-			    
+        (square 34 "solid" (make-color 150 150 255)))
+
 "ABOVE: reference image"
 (above (square 20 "solid" (make-color  50  50 255))
-             (square 34 "solid" (make-color 150 150 255)))
+       (square 34 "solid" (make-color 150 150 255)))
 
 "flip the second one horizontally"			    
 (above (square 20 "solid" (make-color  50  50 255))
-             (flip-horizontal (square 34 "solid" (make-color 150 150 255))))
+       (flip-horizontal (square 34 "solid" (make-color 150 150 255))))
 
 "flip the second one vertically"			    
 (above (square 20 "solid" (make-color  50  50 255))
-             (flip-vertical (square 34 "solid" (make-color 150 150 255))))
-			    
+       (flip-vertical (square 34 "solid" (make-color 150 150 255))))
+
 "flip the first one horizontally"			    
 (above (flip-horizontal (square 20 "solid" (make-color  50  50 255)))
-             (square 34 "solid" (make-color 150 150 255)))
+       (square 34 "solid" (make-color 150 150 255)))
 
 "flip the first one vertically"			    
 (above (flip-vertical (square 20 "solid" (make-color  50  50 255)))
-             (square 34 "solid" (make-color 150 150 255)))
+       (square 34 "solid" (make-color 150 150 255)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -522,7 +526,7 @@
 
 "(image-width (beside (circle 20 'solid' 'orange') (circle 20 'solid' 'purple')))"
 (image-width (beside (circle 20 "solid" "orange") (circle 20 "solid" "purple")))
-						 
+
 "(image-height (overlay (circle 20 'solid' 'orange') (circle 30 'solid' 'purple')))"
 (image-height (overlay (circle 20 "solid" "orange") (circle 30 "solid" "purple")))
 
@@ -538,7 +542,7 @@
 
 "(image-height (text/font 'Goodbye' 48 'indigo' 'Helvetica' 'modern 'normal 'normal #f))"
 (image-height (text/font "Goodbye" 48 "indigo" "Helvetica" 'modern 'normal 'normal #f))
-						
+
 "(image-baseline (rectangle 100 100 'solid' 'black'))"
 (image-baseline (rectangle 100 100 "solid" "black"))
 
