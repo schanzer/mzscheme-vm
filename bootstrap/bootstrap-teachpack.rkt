@@ -27,6 +27,9 @@
 (define score (box 0))
 ; how far between each being?
 (define (spacing) (random 500))
+
+; how tolerant are we of tilt events?
+(define TOLERANCE 15)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Game Structures
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -172,6 +175,14 @@
                               title
                               0))
            (keypress* (lambda (w k) (keypress w k update-player)))
+           (tilt (lambda w x y)
+                  (cond
+                           [(> x 15) (keypress* w "right")]
+                           [(< x -15) (keypress* w "left")]
+                           [(> y 15) (keypress* w "up")]
+                           [(< x 15) (keypress* w "down")]
+                           [else w]))
+           (tap (lambda w x y) (keypress* w " "))
            (update-world (lambda (w) 
                            (begin 
                              (set-box! score (world-score w))
@@ -201,6 +212,8 @@
       (big-bang world
                 (on-tick update-world .1)
                 (to-draw draw-world)
+                (on-tilt tilt)
+                (on-tap tap)
                 (on-key keypress*)))))
 
 ; test-frame : String Image Image Image Image -> Image
