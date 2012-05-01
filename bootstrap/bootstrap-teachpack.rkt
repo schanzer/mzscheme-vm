@@ -177,10 +177,10 @@
            (keypress* (lambda (w k) (keypress w k update-player)))
            (tilt (lambda w x y)
                   (cond
-                           [(> x 15) (keypress* w "right")]
-                           [(< x -15) (keypress* w "left")]
-                           [(> y 15) (keypress* w "up")]
-                           [(< x 15) (keypress* w "down")]
+                           [(> x TOLERANCE) (keypress* w "right")]
+                           [(< x (* -1 TOLERANCE)) (keypress* w "left")]
+                           [(> y TOLERANCE) (keypress* w "up")]
+                           [(< x (* -1 TOLERANCE)) (keypress* w "down")]
                            [else w]))
            (tap (lambda w x y) (keypress* w " "))
            (update-world (lambda (w) 
